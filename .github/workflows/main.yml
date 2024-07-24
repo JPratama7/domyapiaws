@@ -42,8 +42,12 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
       - name: install Serverless Framework
         run: doctl serverless install
+
+      - name: Conenct to Namespace
+        run: doctl serverless connect
 
       - name: Save DigitalOcean kubeconfig
         run: doctl serverless deploy .
