@@ -4,8 +4,6 @@ go 1.21
 
 require (
 	github.com/PuerkitoBio/goquery v1.9.2
-	github.com/aws/aws-lambda-go v1.47.0
-	github.com/awslabs/aws-lambda-go-api-proxy v0.16.2
 	github.com/google/go-github/v32 v32.1.0
 	github.com/google/go-github/v59 v59.0.0
 	github.com/google/go-querystring v1.1.0
@@ -20,7 +18,6 @@ require (
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/klauspost/compress v1.17.4 // indirect
 	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect
-	github.com/stretchr/testify v1.8.4 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect

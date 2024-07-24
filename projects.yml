@@ -1,0 +1,7 @@
+packages:
+  - name: function
+    actions:
+      - name: function
+        runtime: go
+        web: true
+        main: ./

@@ -37,29 +37,11 @@ jobs:
 
       - name: Install dependencies
         run: go get .
-    
-      - name: Building Code
-        run: |
-          GOOS=linux GOARCH=amd64 go build -o bootstrap ${{ env.ENTRY_FILE }}
-          chmod +x bootstrap
-          zip deploy.zip bootstrap
-      
-      - name: Check if lambda exists
-        id: lambda_status
-        continue-on-error: true
-        run: aws lambda get-function --function-name ${{ env.FUNCTION_NAME }} > /dev/null 2>&1
-         
-      - name: Create Function
-        if: steps.lambda_status.outcome != 'success'
-        run: |
-          aws lambda create-function \
-          --function-name ${{ env.FUNCTION_NAME }} \
-          --zip-file fileb://deploy.zip \
-          --handler bootstrap \
-          --runtime provided.al2023 \
-          --role ${{ secrets.AWS_ROLE }} > /dev/null 2>&1
-          --environment: MONGOSTRING=${{ secrets.MONGOSTRING }}
 
-      - name: Update Function
-        if: steps.lambda_status.outcome == 'success'
-        run: aws lambda update-function-code --function-name ${{ env.FUNCTION_NAME }} --zip-file fileb://deploy.zip > /dev/null 2>&1
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Save DigitalOcean kubeconfig
+        run: doctl serverless deploy

@@ -2,14 +2,14 @@ package main
 
 import (
 	"net/http"
-
-	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/awslabs/aws-lambda-go-api-proxy/httpadapter"
-	route "github.com/domyid/domyapi/route"
+	"os"
 )
 
 func main() {
-	http.HandleFunc("/", route.URL)
-	adapter := httpadapter.New(http.DefaultServeMux)
-	lambda.Start(adapter.ProxyWithContext)
+	port := "8080"
+	if fromEnv := os.Getenv("PORT"); fromEnv != "" {
+		port = fromEnv
+	}
+
+	http.ListenAndServe(":"+port, nil)
 }
