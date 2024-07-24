@@ -1,15 +1,10 @@
 package main
 
 import (
+	"github.com/domyid/domyapi/route"
 	"net/http"
-	"os"
 )
 
-func main() {
-	port := "8080"
-	if fromEnv := os.Getenv("PORT"); fromEnv != "" {
-		port = fromEnv
-	}
-
-	http.ListenAndServe(":"+port, nil)
+func Main(w http.ResponseWriter, r *http.Request) {
+	route.URL(w, r)
 }

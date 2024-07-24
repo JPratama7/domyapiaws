@@ -1,0 +1,8 @@
+packages:
+  - name: domykado2
+    functions:
+      - name: domykado2
+        binary: false
+        main: main.Main
+        runtime: go:1.20
+        web: true

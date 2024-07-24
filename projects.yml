@@ -1,7 +1,0 @@
-packages:
-  - name: domykado
-    actions:
-      - name: domykado
-        runtime: go
-        web: true
-        main: ./
