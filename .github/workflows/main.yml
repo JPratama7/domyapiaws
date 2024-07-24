@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  AWS_REGION: ap-southeast-2 # Change to yours
+  AWS_REGION: ap-southeast-1 # Change to yours
   ENTRY_FILE: main.go # Change to yours
   FUNCTION_NAME: domyikado # Change to yours
     
