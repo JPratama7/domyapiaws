@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: ap-southeast-1 # Change to yours
   ENTRY_FILE: main.go # Change to yours
-  FUNCTION_NAME: domyikado # Change to yours
+  FUNCTION_NAME: domikacrot # Change to yours
     
 permissions:
   contents: read
