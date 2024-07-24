@@ -49,5 +49,5 @@ jobs:
       - name: Conenct to Namespace
         run: doctl serverless connect
 
-      - name: Save DigitalOcean kubeconfig
-        run: doctl serverless deploy .
+      - name: Deploy Serverless
+        run: doctl serverless deploy . --remote-build
